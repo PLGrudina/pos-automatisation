@@ -20,8 +20,8 @@
 
         #header {
             margin-top: -1px;
-            border: 2px solid white;
-            background: #f6ca47;
+            border: 2px solid #f0ffd4;
+            background: #ff6347;
             text-align: center;
             border-bottom-right-radius: 15px;
             border-bottom-left-radius: 15px;
@@ -113,7 +113,7 @@
 <table class="table table-bordered" id="header">
     <tr>
         <td id="header-cashier">Administrator</td>
-        <td id="corporation-name">Automatisation Inc.</td>
+        <td id="corporation-name">Tomato</td>
     </tr>
 </table>
 
@@ -142,6 +142,11 @@
             </div>
 
             <div class="form-group">
+                <label for="weight">Weight:</label>
+                <input id="weight" type="text" class="form-control" name="weight" value="${dish.weight}">
+            </div>
+
+            <div class="form-group">
                 <label for="price">Price:</label>
                 <input id="price" type="text" class="form-control" name="price" value="${dish.price}">
             </div>
@@ -157,7 +162,6 @@
                     <tr>
 
                         <input id="ingredient" type="checkbox" checked name="ingredientName" value="${ingredient.name}"/>${ingredient.name}
-                        <input id="weight" type="text" class="form-control" name="ingredientWeight" value="${ingredient.weight}"/>
                     </tr>
                     </c:forEach>
 

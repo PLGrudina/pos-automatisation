@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>MyPage</title>
+    <title>Kitchen</title>
     <link rel="stylesheet" type="text/css" href="static/css/resetCSS_kitchen.css">
     <link rel="stylesheet" type="text/css" href="static/css/style_kitchen.css">
     <link rel="shortcut icon" href="#" type="image/x-icon">
@@ -21,11 +21,8 @@
     <!-- ///////////// header /////////////////// -->
     <header class="header">
         <ul class="header-block">
-            <li class="header-line"><a href="#">Шеф</a></li>
-            <li class="header-line header-line-border"><a href="#">Automatisation Inc.</a></li>
-            <li class="header-line">
-                <a href="#"><img src="static/img/lock.png" alt="LOCK"></a>
-            </li>
+            <li class="header-line" id="header-kitchen">Kitchen</li>
+            <li class="header-line" id="corporation-name">Tomato</li>
         </ul>
     </header>
     <!-- //////////////bilds////////////// -->

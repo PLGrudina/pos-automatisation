@@ -18,8 +18,8 @@
 
         #header {
             margin-top: -1px;
-            border: 2px solid white;
-            background: #f6ca47;
+            border: 2px solid #f0ffd4;
+            background: #ff6347;
             text-align: center;
             border-bottom-right-radius: 15px;
             border-bottom-left-radius: 15px;
@@ -111,7 +111,7 @@
 <table class="table table-bordered" id="header">
     <tr>
         <td id="header-cashier">Administrator</td>
-        <td id="corporation-name">Automatisation Inc.</td>
+        <td id="corporation-name">Tomato</td>
     </tr>
     </table>
 <div class="container">

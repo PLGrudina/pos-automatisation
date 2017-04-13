@@ -18,40 +18,61 @@
 
         #header {
             margin-top: -1px;
-            border: 2px solid white;
-            background: #f6ca47;
+            border: 2px solid #f0ffd4;
+            background: #ff6347;
             text-align: center;
             border-bottom-right-radius: 15px;
             border-bottom-left-radius: 15px;
             margin-bottom: -1px;
         }
 
-        #header-cashier, #header-bill, header-dishes, header-ingredients {
+        #header-cashier, header-dishes, header-ingredients {
 
             font-family: Bitter, serif;
-            font-size: x-large;
-            text-shadow: 1px 1px 1px black;
+            font-size: xx-large;
+            text-shadow: 1px 1px 1px grey;
             width: 50%;
 
         }
 
         #corporation-name {
+            text-align: center;
             font-family: Lobster, cursive;
             font-size: xx-large;
             width: 50%;
         }
 
-        #container {
+        #containerDish {
             font-family: Bitter, serif;
             font-size: x-large;
-            text-shadow: 1px 1px 1px black;
-            width: 100%;
+            text-shadow: 1px 1px 1px grey;
+            width: 50%;
+            float: left;
+        }
+
+        #containerIngr {
+            font-family: Bitter, serif;
+            font-size: x-large;
+            text-shadow: 1px 1px 1px grey;
+            width: 50%;
+            float: right;
+        }
+
+        #up {
+            margin-left: 1%;
+            float: left;
+        }
+
+        #back {
+            padding-left: 1%;
+            padding-right: 3%;
+            float: left;
         }
 
         #profit {
             font-family: Bitter, serif;
             font-size: x-large;
-            text-shadow: 1px 1px 1px black;
+            text-shadow: 1px 1px 1px grey;
             width: 100%;
         }
 
@@ -114,14 +135,16 @@
 <body>
 <table class="table table-bordered" id="header">
     <tr>
-        <td id="header-cashier">Administrator</td>
-        <td id="corporation-name">Automatisation Inc.</td>
+        <td id="header-cashier"><a href="/"><img id="back" src="/static/img/backS.png"></a>Administrator
+        </td>
+
+        <td id="corporation-name">Tomato</td>
     </tr>
     <%--<h3 id="profit">Today we received: ${administratorService.billSumByDate(dateNow)}</h3>--%>
 
 </table>
 
-<table class="table table-bordered" id="container">
+<table class="table table-bordered" id="containerDish">
     <tr>
         <td id="header-dishes">Dishes
 
@@ -162,6 +185,12 @@
                 </c:forEach>
             </table>
         </td>
+
+    </tr>
+</table>
+
+<table class="table table-bordered" id="containerIngr">
+    <tr>
         <td id="header-ingredients">Ingredients
 
             <c:url value="/ingredient" var="createUrl"/>
@@ -194,7 +223,7 @@
                         <c:url value="/administrator" var="deleteUrl"/>
                         <form action="${deleteUrl}" method="post">
                             <button type="submit" name="id" value="${ingredient.id}">delete
-                                <%--<img src="/static/img/deleteIcon.jpg">--%>
+                                    <%--<img src="/static/img/deleteIcon.jpg">--%>
                             </button>
                         </form>
                     </td>
@@ -205,11 +234,11 @@
             </table>
         </td>
     </tr>
-
 </table>
+<br>
 
 <a href="#header">
-    <img src="/static/img/upButton.png">
+    <img id="up" src="/static/img/up.png">
 </a>
 </body>
 </html>

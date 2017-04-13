@@ -113,7 +113,7 @@
 <table class="table table-bordered" id="header">
     <tr>
         <td id="header-cashier">Cashier</td>
-        <td id="corporation-name">Automatisation Inc.</td>
+        <td id="corporation-name">Tomato</td>
         <td id="header-bill">Check №</td>
     </tr>
 </table>

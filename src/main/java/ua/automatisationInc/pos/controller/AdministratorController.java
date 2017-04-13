@@ -82,7 +82,6 @@ public class AdministratorController {
             dish = new Dish();
             List<Ingredient> ingredientList = administratorService.getAllIngredients();
             dish.setIngredients(ingredientList);
-            dish.setWeight();
         }
         model.addAttribute("dish", dish);
         return "/dish";

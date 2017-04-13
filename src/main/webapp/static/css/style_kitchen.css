@@ -8,34 +8,38 @@
 }
 /*=======header=======*/
 .header-block{
-	margin: 0 auto;
-	display: block;
-	box-sizing: border-box;
-	width: 1200px;
-	/*width: 100%;*/
-	font-size: 0px;
-	background-color: #F1B808;
-	border-radius: 0px 0px 20px 20px;
-	border-bottom: 1px solid gray;
-	position: relative;
+	margin-top: -1px;
+	border: 2px solid #f0ffd4;
+	background: #ff6347;
+	text-align: center;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	margin-bottom: -1px;
 }
+
+#header-kitchen{
+	font-family: Bitter, serif;
+	font-size: xx-large;
+	text-shadow: 1px 1px 1px grey;
+	width: 50%;
+}
+
+#corporation-name{
+	font-family: Lobster, cursive;
+	font-size: xx-large;
+	text-shadow: 1px 1px 1px grey;
+	width: 50%;
+}
+
 .header-line{
 	display: inline-block;
 	vertical-align: top;
 	box-sizing: border-box;
-	width: 33.32%;
+	width: 50%;
 	font-size:16px;
 	font-weight: 800;
 	text-align: center;
 	padding: 15px 0px;
-}
-img{
-	margin: 0px auto;
-	display: block;
-	width: 30px;
-	position: absolute;
-	top: 5px;
-	right: 200px;
 }
 .header-line-border{
 	border-right: 1px solid gainsboro;
