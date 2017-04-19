@@ -40,7 +40,7 @@
 </div>
 <div class="footer">
     <span>
-      @Developed by P.G.(Tomato company)
+      @Developed by P.G.(Tomato code company)
     </span>
 </div>
 

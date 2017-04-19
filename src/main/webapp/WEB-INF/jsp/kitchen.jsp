@@ -11,57 +11,53 @@
 <head>
     <meta charset="utf-8">
     <title>Kitchen</title>
-    <link rel="stylesheet" type="text/css" href="static/css/resetCSS_kitchen.css">
-    <link rel="stylesheet" type="text/css" href="static/css/style_kitchen.css">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/static/css/kitchenPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <%--<link rel="shortcut icon" href="#" type="image/x-icon">--%>
 </head>
 
-<body>
-<div class="wrapper">
-    <!-- ///////////// header /////////////////// -->
-    <header class="header">
-        <ul class="header-block">
-            <li class="header-line" id="header-kitchen">Kitchen</li>
-            <li class="header-line" id="corporation-name">Tomato</li>
-        </ul>
-    </header>
-    <!-- //////////////bilds////////////// -->
+<div id="mainContainer">
+    <table class="table" id="header">
+        <tr>
+            <td id="backButton">
+                <a href="/"><img src="/static/img/backS.png"></a>
+            </td>
+            <td id="header-kitchen">Kitchen</td>
+
+            <td id="corporation-name">Tomato code</td>
+        </tr>
+
+    </table>
+
     <div class="bildsContainer">
+
         <c:forEach items="${bills}" var="bill" varStatus="count">
+
             <div id="${bill.id}" class="bild">
-                <h3 class="bildNumber">${bill.id}</h3>
+                <h3 class="bildNumber">${bill.number}</h3>
+                <hr class="line">
                 <table class="bild-table">
-                    <tr class="bild-table-nomber">
+                    <tr>
                         <th>${bill.comment}</th>
-                        <th>Count</th>
                     </tr>
-                    <tr>
-                        <th>burger</th>
-                        <th>120</th>
-                    <tr>
-                        <th>burger</th>
-                        <th>120</th>
-                    <tr>
-                        <th>burger</th>
-                        <th>120</th>
-                    <tr>
-                        <th>burger</th>
-                        <th>120</th>
+
+                    <c:forEach items="${bill.dishList}" var="dish">
+                        <tr>
+                            <th>${dish.name}</th>
+                            <th>${dish.weight}</th>
+                        </tr>
+                    </c:forEach>
+
                 </table>
-                <div class="timeBox">
-                    <span class="time">
-					22:00
-				</span>
-                </div>
+                <hr class="line">
                 <div class="button">
-                    <input type="button" value="Готово" id="button-sub" onclick="del(this)">
+                    <input type="button" class="btn btn-success" value="Done" onclick="del(this)">
                 </div>
             </div>
         </c:forEach>
     </div>
 </div>
-<!-- //////////////bilds////////////// -->
-</div>
+
 <script type="text/javascript">
     function del(obj) {
         // body...
