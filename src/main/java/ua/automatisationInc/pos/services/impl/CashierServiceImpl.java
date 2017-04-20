@@ -103,7 +103,7 @@ public class CashierServiceImpl implements CashierService {
 
     @Override
     @Transactional
-    public void postToKitchen(Bill bill) {
+    public void saveBill (Bill bill) {
         billDao.save(bill);
     }
 

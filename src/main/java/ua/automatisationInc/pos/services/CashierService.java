@@ -30,7 +30,7 @@ public interface CashierService {
 
     List<Bill> getAllBillsByToDay(LocalDate date);
 
-    void postToKitchen(Bill bill);
+    void saveBill(Bill bill);
 
     List<Bill> divideBill(Bill bill);
 

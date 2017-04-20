@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<div id="mainContainer">
+<div class="mainContainer">
     <table class="table" id="header">
         <tr>
             <td id="backButton">
@@ -46,6 +46,7 @@
                                     <th>Name</th>
                                     <th>Weight</th>
                                     <th>Price</th>
+                                    <th>Remove</th>
 
                                 </tr>
                                 </thead>
@@ -93,6 +94,7 @@
                                     <th>Weight</th>
                                     <th>Date</th>
                                     <th>Status</th>
+                                    <th>Remove</th>
 
                                 </tr>
                                 </thead>

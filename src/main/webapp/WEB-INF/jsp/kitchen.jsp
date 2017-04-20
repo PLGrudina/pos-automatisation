@@ -13,10 +13,10 @@
     <title>Kitchen</title>
     <link rel="stylesheet" type="text/css" href="/static/css/kitchenPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <%--<link rel="shortcut icon" href="#" type="image/x-icon">--%>
+
 </head>
 
-<div id="mainContainer">
+<div class="mainContainer">
     <table class="table" id="header">
         <tr>
             <td id="backButton">
@@ -33,28 +33,34 @@
 
         <c:forEach items="${bills}" var="bill" varStatus="count">
 
-            <div id="${bill.id}" class="bild">
+        <c:url value="/kitchen" var="billUrl"/>
+        <form action="${billUrl}" method="post">
+            <input type="hidden" name="id" value="${bill.id}">
+
+            <div class="bild">
                 <h3 class="bildNumber">${bill.number}</h3>
                 <hr class="line">
-                <table class="bild-table">
-                    <tr>
-                        <th>${bill.comment}</th>
-                    </tr>
+                <p class="bild-table">${bill.comment}</p>
+                <hr class="line">
 
+                <table class="bild-table">
                     <c:forEach items="${bill.dishList}" var="dish">
                         <tr>
                             <th>${dish.name}</th>
-                            <th>${dish.weight}</th>
+                            <th>&emsp;</th>
+                            <th>${dish.weight}gr</th>
                         </tr>
                     </c:forEach>
 
                 </table>
                 <hr class="line">
                 <div class="button">
-                    <input type="button" class="btn btn-success" value="Done" onclick="del(this)">
+                    <input type="submit" class="btn btn-success" value="Done" onclick="del(this)">
                 </div>
             </div>
-        </c:forEach>
+            </c:forEach>
+        </form>
+
     </div>
 </div>
 
