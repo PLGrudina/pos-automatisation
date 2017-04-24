@@ -55,7 +55,7 @@
                 </table>
                 <hr class="line">
                 <div class="button">
-                    <input type="submit" class="btn btn-success" value="Done" onclick="del(this)">
+                    <input type="submit" class="btn btn-success" value="Done">
                 </div>
             </div>
             </c:forEach>
@@ -64,14 +64,5 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    function del(obj) {
-        // body...
-        var a = obj.parentNode.parentNode.id;
-        var b = document.getElementById(a);
-        b.parentNode.removeChild(b);
-    }
-
-</script>
 </body>
 </html>

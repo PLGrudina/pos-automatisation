@@ -79,7 +79,7 @@
                     <c:forEach items="${dish.ingredients}" var="ingredient" varStatus="count">
                         <tr>
 
-                            <input id="ingredient" type="checkbox" checked name="ingredientName"
+                            <input id="ingredient" type="checkbox" checked name="ingredientName[]"
                                    value="${ingredient.name}"/>${ingredient.name}
                         </tr><br>
                     </c:forEach>

@@ -88,7 +88,14 @@ public class AdministratorController {
     }
 
     @RequestMapping(path = "/dish", method = RequestMethod.POST)
-    public String edit(@ModelAttribute Dish dish) {
+    public String edit(@ModelAttribute Dish dish, @RequestParam(name = "ingredientName[]") String[] ingredientName){
+        administratorService.saveDish(dish);
+
+        for (String nameIngr : ingredientName) {
+            Ingredient ingredient = administratorService.findByName(nameIngr);
+            dish.getIngredients().add(ingredient);
+        }
+
         administratorService.saveDish(dish);
         return "redirect:/administrator";
     }

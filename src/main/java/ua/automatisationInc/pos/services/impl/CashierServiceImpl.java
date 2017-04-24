@@ -104,7 +104,7 @@ public class CashierServiceImpl implements CashierService {
     @Override
     @Transactional
     public void saveBill (Bill bill) {
-        billDao.save(bill);
+        billDao.saveOrUpdate(bill);
     }
 
     @Override //TODO: it will be later

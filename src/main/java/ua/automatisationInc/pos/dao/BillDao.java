@@ -14,6 +14,10 @@ public interface BillDao {
 
     Bill save(Bill bill);
 
+    Bill update(Bill bill);
+
+    Bill saveOrUpdate(Bill bill);
+
     void delete(long id);
 
     void deleteByDate(LocalDate date);
@@ -24,5 +28,5 @@ public interface BillDao {
 
     List<Bill> findByDate(LocalDate date);
 
-    List<Bill> findByStatus (BillStatus status);
+    List<Bill> findByStatus(BillStatus status);
 }

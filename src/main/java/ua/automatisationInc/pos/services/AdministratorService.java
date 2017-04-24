@@ -22,6 +22,8 @@ public interface AdministratorService {
 
     Ingredient findById (long id);
 
+    Ingredient findByName (String name);
+
     Ingredient saveIngredient (Ingredient ingredient);
 
     void deleteIngredientById (long id);

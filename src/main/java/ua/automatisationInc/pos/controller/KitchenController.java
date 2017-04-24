@@ -41,7 +41,8 @@ public class KitchenController {
     }
 
     @RequestMapping(path = "/kitchen", method = RequestMethod.POST)
-    public String edit(@ModelAttribute Bill bill) {
+    public String edit(@RequestParam(name = "id", required = false) Long id) {
+        Bill bill = cashierService.getBill(id);
         bill.setStatus(BillStatus.DONE);
         cashierService.saveBill(bill);
         return "redirect:/kitchen";
