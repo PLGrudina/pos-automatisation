@@ -11,36 +11,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Cashier</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../../static/js/cashier.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <meta charset="UTF-8">
-    <title>Cashier</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/cashierPage.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lobster');
         @import url('https://fonts.googleapis.com/css?family=Bitter');
 
-        #header {
-            margin-top: -1px;
-            border: 2px solid white;
-            background: #f6ca47;
-            text-align: center;
-            border-bottom-right-radius: 15px;
-            border-bottom-left-radius: 15px;
-            margin-bottom: -1px;
-        }
-
-        #header-cashier, #header-bill {
+         #header-bill {
 
             font-family: Bitter, serif;
             font-size: x-large;
             text-shadow: 1px 1px 1px black;
 
-        }
-
-        #corporation-name {
-            font-family: Lobster, cursive;
-            font-size: xx-large;
         }
 
         #container {
@@ -84,25 +72,30 @@
             height: 110px;
             text-align: center;
         }
+
         .table-hover {
             background: white;
         }
+
         #pay-button {
             width: 150px;
             height: 40px;
             float: right;
         }
-        #bonus-button{
+
+        #bonus-button {
             width: 70px;
             height: 40px;
             text-transform: uppercase;
         }
+
         #function-button {
             width: 70px;
             height: 40px;
 
         }
-        .col-md-2{
+
+        .col-md-2 {
             padding: 0px;
             width: initial;
         }
@@ -110,46 +103,51 @@
     </style>
 </head>
 <body>
-<table class="table table-bordered" id="header">
-    <tr>
-        <td id="header-cashier">Cashier</td>
-        <td id="corporation-name">Automatisation Inc.</td>
-        <td id="header-bill">Check №</td>
-    </tr>
-</table>
-<div id="container">
-    <div id="nav" class=".col-md-3">
-        <c:forEach items= "${dishTypes}" var="dishType" varStatus="count">
-            <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}" value=${dishType}>
-            <p><strong>${dishType}</strong></p>
-        </c:forEach>
-    </div>
-    <div id="aside" class=".col-md-3">
-        <table class="table table-hover" id="check">
-            <thead>
-            <tr>
-                <th>Title</th>
-                <th>Weight</th>
-                <th>Price</th>
-            </tr>
-            </thead>
-            <tbody>
+<div class="mainContainer">
+    <table class="table" id="header">
+        <tr>
+            <td id="backButton">
+                <a href="/"><img src="/static/img/backS.png"></a>
+            </td>
+            <td id="header-cashier">Cashier</td>
+            <td id="corporation-name">Tomato code</td>
+        </tr>
+    </table>
+    <div id="container">
+        <div id="nav" class=".col-md-3">
+            <c:forEach items="${dishTypes}" var="dishType" varStatus="count">
+                <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}"
+                       value=${dishType}>
+                <p><strong>${dishType}</strong></p>
+            </c:forEach>
+        </div>
+        <div id="aside" class=".col-md-3">
+            <table class="table table-hover" id="check">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Weight</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
-        <button type="submit" class="btn btn-default" id="function-button"><strong>...</strong></button>
-        <button type="submit" class="btn btn-default" id="bonus-button"><strong>%</strong></button>
-        <button type="submit" class="btn btn-success" id="pay-button"><strong>Pay</strong></button>
-    </div>
-    <div id="content" class="row">
-        <c:forEach items="${sandwiches}" var="dish" varStatus="count">
-            <div class="col-md-2">
-                <input type="image" src="${dish.url}" class="dish-button" name=${dish.name}, id=${dish.id}>
-                <p><strong>${dish.name}</strong></p>
-                <p>${dish.weight}g. / ${dish.price}$</p>
-            </div>
-        </c:forEach>
+            <button type="submit" class="btn btn-default" id="function-button"><strong>...</strong></button>
+            <button type="submit" class="btn btn-default" id="bonus-button"><strong>%</strong></button>
+            <button type="submit" class="btn btn-success" id="pay-button"><strong>Pay</strong></button>
+        </div>
+        <div id="content" class="row">
+            <c:forEach items="${sandwiches}" var="dish" varStatus="count">
+                <div class="col-md-2">
+                    <input type="image" src="${dish.url}" class="dish-button" name=${dish.name}, id=${dish.id}>
+                    <p><strong>${dish.name}</strong></p>
+                    <p>${dish.weight}g. / ${dish.price}$</p>
+                </div>
+            </c:forEach>
+        </div>
     </div>
 </div>
 </body>

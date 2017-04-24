@@ -81,12 +81,8 @@ public class Dish {
 
     public double getWeight() {return weight;}
 
-    public void setWeight() {
-        double dishWeight=0;
-        for (Ingredient ingr:ingredients) {
-            dishWeight += ingr.getWeight();
-        }
-        weight = dishWeight;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     public List<Ingredient> getIngredients() {

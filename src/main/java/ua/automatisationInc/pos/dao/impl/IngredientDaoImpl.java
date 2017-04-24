@@ -48,7 +48,7 @@ public class IngredientDaoImpl implements IngredientDao {
     @Override
     public Ingredient findByName(String name) {
 
-        Ingredient ingredient = entityManager.createQuery("from Ingredient where name like: ingName", Ingredient.class)
+        Ingredient ingredient = entityManager.createQuery("from Ingredient where name like:ingName", Ingredient.class)
                 .setParameter("ingName", name).getSingleResult();
 
         return ingredient;

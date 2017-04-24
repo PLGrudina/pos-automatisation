@@ -26,6 +26,21 @@ public class BillDaoImpl implements BillDao {
         return bill;
     }
 
+    @Override
+    public Bill update(Bill bill) {
+        entityManager.merge(bill);
+        return bill;
+    }
+
+    @Override
+    public Bill saveOrUpdate(Bill bill) {
+        if (bill.getId() > 0) {
+            update(bill);
+        } else {
+            save(bill);
+        }
+        return bill;
+    }
 
     @Override
     public void delete(long id) {

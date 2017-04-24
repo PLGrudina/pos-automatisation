@@ -18,11 +18,11 @@ public interface AdministratorService {
 
     List<Bill> getAllBills ();
 
-//  Если у существующего Ingredient weight > 100.0 (все считаем в граммах)
-//  возвращаем "enough" если < 100 возвращаем "need to add"
     String getIngredientStatus (Ingredient ingredient);
 
     Ingredient findById (long id);
+
+    Ingredient findByName (String name);
 
     Ingredient saveIngredient (Ingredient ingredient);
 
@@ -32,7 +32,6 @@ public interface AdministratorService {
 
     void deleteDishById (long id);
 
-// возвращает сумму по всем DONE счетам за определенную дату
     double billSumByDate (LocalDate date);
 
 

@@ -10,69 +10,59 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>MyPage</title>
-    <link rel="stylesheet" type="text/css" href="static/css/resetCSS_kitchen.css">
-    <link rel="stylesheet" type="text/css" href="static/css/style_kitchen.css">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <title>Kitchen</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/kitchenPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 
-<body>
-<div class="wrapper">
-    <!-- ///////////// header /////////////////// -->
-    <header class="header">
-        <ul class="header-block">
-            <li class="header-line"><a href="#">Шеф</a></li>
-            <li class="header-line header-line-border"><a href="#">Automatisation Inc.</a></li>
-            <li class="header-line">
-                <a href="#"><img src="static/img/lock.png" alt="LOCK"></a>
-            </li>
-        </ul>
-    </header>
-    <!-- //////////////bilds////////////// -->
+<div class="mainContainer">
+    <table class="table" id="header">
+        <tr>
+            <td id="backButton">
+                <a href="/"><img src="/static/img/backS.png"></a>
+            </td>
+            <td id="header-kitchen">Kitchen</td>
+
+            <td id="corporation-name">Tomato code</td>
+        </tr>
+
+    </table>
+
     <div class="bildsContainer">
+
         <c:forEach items="${bills}" var="bill" varStatus="count">
-            <div id="${bill.id}" class="bild">
-                <h3 class="bildNumber">${bill.id}</h3>
+
+        <c:url value="/kitchen" var="billUrl"/>
+        <form action="${billUrl}" method="post">
+            <input type="hidden" name="id" value="${bill.id}">
+
+            <div class="bild">
+                <h3 class="bildNumber">${bill.number}</h3>
+                <hr class="line">
+                <p class="bild-table">${bill.comment}</p>
+                <hr class="line">
+
                 <table class="bild-table">
-                    <tr class="bild-table-nomber">
-                        <th>${bill.comment}</th>
-                        <th>Count</th>
-                    </tr>
-                    <tr>
-                        <th>burger</th>
-                        <th>120</th>
-                    <tr>
-                        <th>burger</th>
-                        <th>120</th>
-                    <tr>
-                        <th>burger</th>
-                        <th>120</th>
-                    <tr>
-                        <th>burger</th>
-                        <th>120</th>
+                    <c:forEach items="${bill.dishList}" var="dish">
+                        <tr>
+                            <th>${dish.name}</th>
+                            <th>&emsp;</th>
+                            <th>${dish.weight}gr</th>
+                        </tr>
+                    </c:forEach>
+
                 </table>
-                <div class="timeBox">
-                    <span class="time">
-					22:00
-				</span>
-                </div>
+                <hr class="line">
                 <div class="button">
-                    <input type="button" value="Готово" id="button-sub" onclick="del(this)">
+                    <input type="submit" class="btn btn-success" value="Done">
                 </div>
             </div>
-        </c:forEach>
+            </c:forEach>
+        </form>
+
     </div>
 </div>
-<!-- //////////////bilds////////////// -->
-</div>
-<script type="text/javascript">
-    function del(obj) {
-        // body...
-        var a = obj.parentNode.parentNode.id;
-        var b = document.getElementById(a);
-        b.parentNode.removeChild(b);
-    }
 
-</script>
 </body>
 </html>

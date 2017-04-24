@@ -40,7 +40,7 @@
 </div>
 <div class="footer">
     <span>
-      @Copyright by Automatisation Inc.
+      @Developed by P.G.(Tomato code company)
     </span>
 </div>
 
