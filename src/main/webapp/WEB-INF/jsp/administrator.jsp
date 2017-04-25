@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<div class="mainContainer">
+<div id="mainContainer">
     <table class="table" id="header">
         <tr>
             <td id="backButton">

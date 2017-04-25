@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<div id="mainContainer">
+<div class="mainContainer">
 
     <table class="table" id="header">
         <tr>

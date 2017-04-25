@@ -76,13 +76,16 @@ public class AdministratorController {
     @RequestMapping(path = "/dish", method = RequestMethod.GET)
     public String addDish(@RequestParam(name = "id", required = false) Long id, Model model) {
         Dish dish;
+        List<Ingredient> ingredientList = administratorService.getAllIngredients();
+
         if (id != null) {
             dish = cashierService.getDishById(id);
+            ingredientList.removeAll(dish.getIngredients());
         } else {
             dish = new Dish();
-            List<Ingredient> ingredientList = administratorService.getAllIngredients();
-            dish.setIngredients(ingredientList);
         }
+
+        model.addAttribute("ingredientList", ingredientList);
         model.addAttribute("dish", dish);
         return "/dish";
     }
