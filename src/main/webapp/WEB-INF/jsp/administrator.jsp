@@ -46,7 +46,7 @@
                                     <th>Name</th>
                                     <th>Weight</th>
                                     <th>Price</th>
-                                    <th>Remove</th>
+                                    <th class="center">Remove</th>
 
                                 </tr>
                                 </thead>
@@ -61,11 +61,10 @@
                                     <td>${dish.weight}</td>
                                     <td>${dish.price}</td>
 
-                                    <td>
+                                    <td class="center">
                                         <c:url value="/administrator" var="deleteUrl"/>
                                         <form action="${deleteUrl}" method="post">
-                                            <button type="submit" name="id" value="${dish.id}">delete
-                                            </button>
+                                            <input type="image" src="/static/img/delete.png" class="delete-button" name="id" value="${dish.id}">
                                         </form>
                                     </td>
 
@@ -94,7 +93,7 @@
                                     <th>Weight</th>
                                     <th>Date</th>
                                     <th>Status</th>
-                                    <th>Remove</th>
+                                    <th class="center">Remove</th>
 
                                 </tr>
                                 </thead>
@@ -110,12 +109,10 @@
                                     <td>${ingredient.date}</td>
                                     <td>${administratorService.getIngredientStatus(ingredient)}</td>
 
-                                    <td>
+                                    <td class="center">
                                         <c:url value="/administrator" var="deleteUrl"/>
                                         <form action="${deleteUrl}" method="post">
-                                            <button type="submit" name="id" value="${ingredient.id}">delete
-                                                    <%--<img src="/static/img/deleteIcon.jpg">--%>
-                                            </button>
+                                            <input type="image" src="/static/img/delete.png" class="delete-button" name="id" value="${ingredient.id}">
                                         </form>
                                     </td>
 

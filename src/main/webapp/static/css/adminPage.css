@@ -66,6 +66,15 @@
     float: left;
 }
 
+.delete-button {
+    width: 22px;
+    height: 25px;
+}
+
+.center{
+    text-align: center;
+}
+
 #tableWraper {
     width: 100%;
 }
