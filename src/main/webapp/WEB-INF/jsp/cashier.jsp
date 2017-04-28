@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Man
-  Date: 21.03.2017
-  Time: 16:03
+  User: PavelGrudina
+  Date: 20.04.2017
+  Time: 2:50
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -64,7 +64,7 @@
         .category-button {
             border-radius: 5px;
             width: 45%;
-            height: 70px;
+            height: 45%;
         }
 
         .dish-button {
@@ -116,7 +116,7 @@
     <div id="container">
         <div id="nav" class=".col-md-3">
             <c:forEach items="${dishTypes}" var="dishType" varStatus="count">
-                <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}"
+                <input type="image" src="/static/img/${dishType}.png" class="category-button" id="${dishType}"
                        value=${dishType}>
                 <p><strong>${dishType}</strong></p>
             </c:forEach>
