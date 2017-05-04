@@ -23,42 +23,37 @@
         @import url('https://fonts.googleapis.com/css?family=Lobster');
         @import url('https://fonts.googleapis.com/css?family=Bitter');
 
-         #header-bill {
-
+        #header-bill {
             font-family: Bitter, serif;
             font-size: x-large;
             text-shadow: 1px 1px 1px black;
-
         }
 
         #container {
-            margin: 0 auto; /* Выравнивание по центру */
+            margin: 0 auto;
         }
 
         #nav {
             text-align: center;
-            padding-top: 20px;
-            width: 15%; /* Ширина левой колонки */
+            padding-top: 2%;
+            width: 15%;
             float: left;
             height: 100%;
-            border-right: 5px;
-            border-color: black;
         }
 
         #aside {
-            background: darkgrey;
-            width: 24%; /* Ширина правой колонки */
+            padding-top: 2%;
+            padding-right: 2%;
+            width: 24%;
             float: right;
-
         }
 
         #content {
-            padding-top: 30px;
-            padding-left: 45px;
+            padding-top: 2%;
             text-align: center;
-            width: 80%;
+            width: 70%;
             margin: 0px;
-            padding-left: 29%;
+            padding-left: 17%;
         }
 
         .category-button {
@@ -67,14 +62,32 @@
             height: 45%;
         }
 
+        #img {
+            width: 40%;
+        }
+
+        #describe {
+            width: 40%;
+        }
+
+        #price {
+            width: 20%;
+        }
+
+        /*.table {*/
+        /*background-color: white;*/
+        /*border: none;*/
+        /*}*/
+
         .dish-button {
-            width: 150px;
-            height: 110px;
+            width: auto;
+            height: 12%;
             text-align: center;
         }
 
         .table-hover {
             background: white;
+            width: 100%;
         }
 
         #pay-button {
@@ -92,14 +105,12 @@
         #function-button {
             width: 70px;
             height: 40px;
-
         }
 
         .col-md-2 {
             padding: 0px;
             width: initial;
         }
-
     </style>
 </head>
 <body>
@@ -121,6 +132,7 @@
                 <p><strong>${dishType}</strong></p>
             </c:forEach>
         </div>
+
         <div id="aside" class=".col-md-3">
             <table class="table table-hover" id="check">
                 <thead>
@@ -139,13 +151,32 @@
             <button type="submit" class="btn btn-default" id="bonus-button"><strong>%</strong></button>
             <button type="submit" class="btn btn-success" id="pay-button"><strong>Pay</strong></button>
         </div>
+
         <div id="content" class="row">
             <c:forEach items="${sandwiches}" var="dish" varStatus="count">
-                <div class="col-md-2">
-                    <input type="image" src="${dish.url}" class="dish-button" name=${dish.name}, id=${dish.id}>
-                    <p><strong>${dish.name}</strong></p>
-                    <p>${dish.weight}g. / ${dish.price}$</p>
-                </div>
+
+                <table class="table-hover">
+                    <tr>
+                        <td id="img">
+                            <input type="image" src="${dish.url}" class="dish-button" name=${dish.name}, id=${dish.id}>
+                        </td>
+
+                        <td id="describe">
+                            <strong>${dish.name}</strong>
+
+                            <p>
+                                <c:forEach items="${dish.ingredients}" var="ingr">
+                                    ${ingr.name} &nbsp
+                                </c:forEach>
+                            </p>
+
+                        </td>
+
+                        <td id="price"><strong>${dish.weight}g. / ${dish.price}$<strong></td>
+
+                    </tr>
+                </table>
+                <br>
             </c:forEach>
         </div>
     </div>
