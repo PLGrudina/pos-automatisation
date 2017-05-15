@@ -91,8 +91,11 @@ public class AdministratorController {
     }
 
     @RequestMapping(path = "/dish", method = RequestMethod.POST)
-    public String edit(@ModelAttribute Dish dish, @RequestParam(name = "ingredientName[]") String[] ingredientName){
+    public String edit(@ModelAttribute Dish dish, @RequestParam(name = "url") String url, @RequestParam(name = "ingredientName[]") String[] ingredientName){
         administratorService.saveDish(dish);
+        if (url.equals("")){
+            dish.setUrl("/static/img/no-picture.png");
+        }
 
         for (String nameIngr : ingredientName) {
             Ingredient ingredient = administratorService.findByName(nameIngr);
