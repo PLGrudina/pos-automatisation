@@ -49,8 +49,6 @@
                            value="SANDWICH" ${dish.category == "SANDWICH" ? "checked" : ""}/>SANDWICH
                     <input id="categorySNACK" type="radio" name="category"
                            value="SNACK" ${dish.category == "SNACK" ? "checked" : ""}/>SNACK
-                    <input id="categorySIDES" type="radio" name="category"
-                           value="SIDES" ${dish.category == "SIDES" ? "checked" : ""}/>SIDES
                     <input id="categorySALAD" type="radio" name="category"
                            value="SALAD" ${dish.category == "SALAD" ? "checked" : ""}/>SALAD
                     <input id="categoryDESSERT" type="radio" name="category"

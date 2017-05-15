@@ -74,14 +74,8 @@
             width: 20%;
         }
 
-        /*.table {*/
-        /*background-color: white;*/
-        /*border: none;*/
-        /*}*/
-
         .dish-button {
-            width: auto;
-            height: 12%;
+            width: 50%;
             text-align: center;
         }
 

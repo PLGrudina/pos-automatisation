@@ -12,43 +12,16 @@
         @import url('https://fonts.googleapis.com/css?family=Lobster');
         @import url('https://fonts.googleapis.com/css?family=Bitter');
 
-        #header-bill {
-            font-family: Bitter, serif;
-            font-size: x-large;
-            text-shadow: 1px 1px 1px black;
-        }
-
         #container {
             margin: 0 auto;
         }
 
-        #nav {
-            text-align: center;
-            padding-top: 2%;
-            width: 15%;
-            float: left;
-            height: 100%;
-        }
-
-        #aside {
-            padding-top: 2%;
-            padding-right: 2%;
-            width: 24%;
-            float: right;
-        }
-
         #content {
-            padding-top: 2%;
+            padding-top: 1.2%;
             text-align: center;
-            width: 70%;
+            width: 83%;
             margin: 0px;
-            padding-left: 17%;
-        }
-
-        .category-button {
-            border-radius: 5px;
-            width: 45%;
-            height: 45%;
+            padding-left: 10%;
         }
 
         #img {
@@ -63,14 +36,8 @@
             width: 20%;
         }
 
-        /*.table {*/
-        /*background-color: white;*/
-        /*border: none;*/
-        /*}*/
-
         .dish-button {
-            width: auto;
-            height: 12%;
+            width: 50%;
             text-align: center;
         }
 
@@ -79,27 +46,6 @@
             width: 100%;
         }
 
-        #pay-button {
-            width: 150px;
-            height: 40px;
-            float: right;
-        }
-
-        #bonus-button {
-            width: 70px;
-            height: 40px;
-            text-transform: uppercase;
-        }
-
-        #function-button {
-            width: 70px;
-            height: 40px;
-        }
-
-        .col-md-2 {
-            padding: 0px;
-            width: initial;
-        }
     </style>
 </head>
 <body>
