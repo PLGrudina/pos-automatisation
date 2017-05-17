@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
+    <script src="../../static/js/cashier.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/cashierPage.css">
 

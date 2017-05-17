@@ -5,6 +5,7 @@ $(function () {
         });
     });
 });
+
 $(function () {
     $('.dish-button').on("click", function () {
         $.get("http://localhost:8080/check?dishId="+this.id, function (result) {
