@@ -26,8 +26,6 @@ public class CashierServiceImpl implements CashierService {
     @Autowired
     private DishDao dishDao;
     @Autowired
-    private IngredientDao ingredientDao;
-    @Autowired
     private BillDao billDao;
 
     @Override
@@ -103,14 +101,8 @@ public class CashierServiceImpl implements CashierService {
 
     @Override
     @Transactional
-    public void saveBill (Bill bill) {
+    public void saveBill(Bill bill) {
         billDao.saveOrUpdate(bill);
-    }
-
-    @Override //TODO: it will be later
-    @Transactional
-    public List<Bill> divideBill(Bill bill) {
-        return null;
     }
 
     @Override
@@ -131,5 +123,15 @@ public class CashierServiceImpl implements CashierService {
     @Transactional
     public Dish getDishById(long dishId) {
         return dishDao.findById(dishId);
+    }
+
+    @Override
+    public double getOrderPrice(Bill bill) {
+        double price = 0;
+
+        for (Dish dish : bill.getDishList()) {
+            price += dish.getPrice();
+        }
+        return price;
     }
 }

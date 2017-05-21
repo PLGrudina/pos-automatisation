@@ -25,13 +25,13 @@ public interface CashierService {
 
     String setComment(long billId, String comment);
 
+    double getOrderPrice (Bill bill);
+
     Bill getBill(long billId);
 
     List<Bill> getAllBillsByToDay(LocalDate date);
 
     void saveBill(Bill bill);
-
-    List<Bill> divideBill(Bill bill);
 
     List<Dish> getDishesByType(DishType type);
 

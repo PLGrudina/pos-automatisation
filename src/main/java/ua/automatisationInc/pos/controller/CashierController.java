@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ua.automatisationInc.pos.models.Bill;
 import ua.automatisationInc.pos.models.Dish;
 import ua.automatisationInc.pos.models.Ingredient;
+import ua.automatisationInc.pos.models.enums.BillStatus;
 import ua.automatisationInc.pos.models.enums.DishType;
 import ua.automatisationInc.pos.services.CashierService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +25,8 @@ import java.util.List;
 public class CashierController {
     @Autowired
     private CashierService cashierService;
+    List<Dish> dishList = new ArrayList<>();
+    double price;
 
     @RequestMapping(path = "/cashier", method = RequestMethod.GET)
     public String getCashierPage(Model model) {
@@ -38,11 +43,35 @@ public class CashierController {
         model.addAttribute("dishes", dishes);
         return "/menu";
     }
+
     @RequestMapping(path = "/check", method = RequestMethod.GET)
-    public String chooseDish(@RequestParam(name="dishId") String dishId, Model model) {
+    public String chooseDish(@RequestParam(name = "dishId") String dishId, Model model) {
         Dish dish = cashierService.getDishById(Long.parseLong(dishId));
-        model.addAttribute("dish",dish);
+        price += dish.getPrice();
+        dishList.add(dish);
+        model.addAttribute("dishList", dishList);
+        model.addAttribute("price", price);
         return "/check";
+    }
+
+    @RequestMapping(path = "/check", method = RequestMethod.POST)
+    public String createBill(@RequestParam(name = "comment") String comment, @RequestParam(name = "doButton") String doButton) {
+        switch (doButton) {
+            case "CREATE": {
+                Bill bill = cashierService.createBill();
+                bill.setDishList(dishList);
+                bill.setComment(comment);
+                bill.setStatus(BillStatus.DO);
+                cashierService.saveBill(bill);
+                break;
+            }
+
+            case "CLEAN": {
+                dishList.clear();
+                break;
+            }
+        }
+        return "redirect:/cashier";
     }
 
 }

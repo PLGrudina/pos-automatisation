@@ -23,12 +23,6 @@
         @import url('https://fonts.googleapis.com/css?family=Lobster');
         @import url('https://fonts.googleapis.com/css?family=Bitter');
 
-        #header-bill {
-            font-family: Bitter, serif;
-            font-size: x-large;
-            text-shadow: 1px 1px 1px black;
-        }
-
         #container {
             margin: 0 auto;
         }
@@ -85,20 +79,17 @@
         }
 
         #pay-button {
-            width: 150px;
-            height: 40px;
+            width: 50%;
+            height: 3%;
             float: right;
-        }
-
-        #bonus-button {
-            width: 70px;
-            height: 40px;
             text-transform: uppercase;
         }
 
-        #function-button {
-            width: 70px;
-            height: 40px;
+        #clear-button {
+            height: 3%;
+            text-transform: uppercase;
+            color: tomato;
+            float: left;
         }
 
         .col-md-2 {
@@ -134,6 +125,7 @@
                     <th>Title</th>
                     <th>Weight</th>
                     <th>Price</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -141,8 +133,7 @@
                 </tbody>
             </table>
 
-            <button type="submit" class="btn btn-default" id="function-button"><strong>...</strong></button>
-            <button type="submit" class="btn btn-default" id="bonus-button"><strong>%</strong></button>
+            <button type="submit" class="btn btn-default" id="clear-button"><strong>Clear</strong></button>
             <button type="submit" class="btn btn-success" id="pay-button"><strong>Pay</strong></button>
         </div>
 
