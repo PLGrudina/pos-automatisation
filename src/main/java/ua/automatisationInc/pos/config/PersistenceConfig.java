@@ -17,7 +17,7 @@ import javax.persistence.EntityManagerFactory;
 import java.util.Properties;
 
 /**
- * Created by Man on 21.03.2017.
+ * Created by PavelGrudina on 05.04.2017.
  */
 @Configuration
 @EnableTransactionManagement
