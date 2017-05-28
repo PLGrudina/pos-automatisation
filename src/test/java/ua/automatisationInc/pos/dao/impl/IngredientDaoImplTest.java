@@ -43,15 +43,6 @@ public class IngredientDaoImplTest {
         Assert.assertTrue(testCucumber.getId() > 0);
     }
 
-    @Test
-    @Transactional
-    public void update() throws Exception {
-        testCucumber.setWeight(60000);
-        ingredientDao.update(testCucumber);
-        Assert.assertTrue(testCucumber.getWeight() == 60000);
-
-    }
-
 
     @Test
     @Transactional
@@ -64,10 +55,20 @@ public class IngredientDaoImplTest {
 
     @Test
     @Transactional
+    public void update() throws Exception {
+        testCucumber.setWeight(60000);
+        ingredientDao.update(testCucumber);
+        Ingredient expected = ingredientDao.findByName("Cucumber");
+        Assert.assertTrue(expected.getWeight() == 60000);
+
+    }
+
+    @Test
+    @Transactional
     public void findById() throws Exception {
         ingredientDao.save(testCucumber);
         Ingredient expected = ingredientDao.findById(testCucumber.getId());
-        Assert.assertEquals(expected.getId(), testCucumber.getId(), 0);
+        Assert.assertEquals(expected, testCucumber);
 
     }
 

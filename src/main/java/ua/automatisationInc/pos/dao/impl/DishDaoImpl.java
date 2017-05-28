@@ -54,7 +54,7 @@ public class DishDaoImpl implements DishDao {
     @Override
     public Dish findByName(String name) {
 
-        Dish dish = entityManager.createQuery("from Dish where name like: dishName", Dish.class)
+        Dish dish = entityManager.createQuery("from Dish where name like:dishName", Dish.class)
                 .setParameter("dishName", name).getSingleResult();
 
         return dish;

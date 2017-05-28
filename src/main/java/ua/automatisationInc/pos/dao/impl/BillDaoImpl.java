@@ -50,7 +50,7 @@ public class BillDaoImpl implements BillDao {
 
     @Override
     public void deleteByDate(LocalDate date) {
-        List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
+        List<Bill> billList = entityManager.createQuery("from Bill where date like:billDate", Bill.class)
                 .setParameter("billDate", date).getResultList();
         for (Bill bill : billList) {
             entityManager.remove(bill);
@@ -70,14 +70,14 @@ public class BillDaoImpl implements BillDao {
 
     @Override
     public List<Bill> findByDate(LocalDate date) {
-        List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
+        List<Bill> billList = entityManager.createQuery("from Bill where date like:billDate", Bill.class)
                 .setParameter("billDate", date).getResultList();
         return billList;
     }
 
     @Override
     public List<Bill> findByStatus(BillStatus status) {
-        List<Bill> billList = entityManager.createQuery("from Bill where status like: billStatus", Bill.class)
+        List<Bill> billList = entityManager.createQuery("from Bill where status like:billStatus", Bill.class)
                 .setParameter("billStatus", status).getResultList();
         return billList;
     }
