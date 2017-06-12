@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ua.automatisationInc.pos.models.Bill;
 import ua.automatisationInc.pos.models.Dish;
 import ua.automatisationInc.pos.models.Ingredient;
-import ua.automatisationInc.pos.models.enums.DishType;
 import ua.automatisationInc.pos.services.AdministratorService;
 import ua.automatisationInc.pos.services.CashierService;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -91,16 +89,19 @@ public class AdministratorController {
     }
 
     @RequestMapping(path = "/dish", method = RequestMethod.POST)
-    public String edit(@ModelAttribute Dish dish, @RequestParam(name = "url") String url, @RequestParam(name = "ingredientName[]") String[] ingredientName){
+    public String edit(@ModelAttribute Dish dish, @RequestParam(name = "url") String url, @RequestParam(name = "ingredientName[]") String[] ingredientName) {
         administratorService.saveDish(dish);
-        if (url.equals("")){
+        if (url.equals("")) {
             dish.setUrl("/static/img/no-picture.png");
         }
+        if (ingredientName.length>1) {
 
-        for (String nameIngr : ingredientName) {
-            Ingredient ingredient = administratorService.findByName(nameIngr);
-            dish.getIngredients().add(ingredient);
+            for (String nameIngr : ingredientName) {
+                Ingredient ingredient = administratorService.findByName(nameIngr);
+                dish.getIngredients().add(ingredient);
+            }
         }
+
 
         administratorService.saveDish(dish);
         return "redirect:/administrator";

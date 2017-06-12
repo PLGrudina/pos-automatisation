@@ -32,6 +32,7 @@ public class CashierServiceImpl implements CashierService {
     @Transactional
     public Bill createBill() {
         Bill bill = new Bill();
+        billDao.save(bill);
         return bill;
     }
 

@@ -4,6 +4,7 @@ import ua.automatisationInc.pos.models.enums.BillStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,8 +35,8 @@ public class Bill {
     @Enumerated(EnumType.STRING)
     private BillStatus status;
 
-    @OneToMany (fetch = FetchType.EAGER)
-    private List<Dish> dishList;
+    @ManyToMany (cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
+    private List<Dish> dishList = new ArrayList<>();
 
 
     public Bill(long id, double bonus, double price, String comment, int number, LocalDate date, List<Dish> dishList) {

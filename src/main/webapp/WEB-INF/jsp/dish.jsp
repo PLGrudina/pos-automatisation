@@ -73,6 +73,7 @@
                 </div>
 
                 <div class="form-group">
+                    <input type="hidden" name="ingredientName[]" value="">
 
                     <c:forEach items="${dish.ingredients}" var="dishIngr">
                         <tr>
@@ -84,6 +85,7 @@
 
                     <c:forEach items="${ingredientList}" var="ingredient" varStatus="count">
                         <tr>
+
                             <input id="ingredient" type="checkbox" name="ingredientName[]"
                                    value="${ingredient.name}"/>${ingredient.name}
                         </tr>

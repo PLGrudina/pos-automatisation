@@ -14,6 +14,7 @@ import ua.automatisationInc.pos.models.enums.BillStatus;
 import ua.automatisationInc.pos.models.enums.DishType;
 import ua.automatisationInc.pos.services.CashierService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,9 +60,12 @@ public class CashierController {
         switch (doButton) {
             case "CREATE": {
                 Bill bill = cashierService.createBill();
+                bill.setDate(LocalDate.now());
                 bill.setDishList(dishList);
                 bill.setComment(comment);
                 bill.setStatus(BillStatus.DO);
+                cashierService.saveBill(bill);
+                bill.setNumber(cashierService.getAllBillsByToDay(LocalDate.now()).size());
                 cashierService.saveBill(bill);
                 break;
             }
